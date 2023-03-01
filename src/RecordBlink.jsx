@@ -12,7 +12,7 @@ export default function RecordBlink() {
   const getPredictions = () => {
     myInterval = setInterval(() => {
       blink.getBlinkPrediction();
-    }, 100);
+    }, 125);
   };
 
   useEffect(() => {
