@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 import stories from './data/stories';
 
 export default function Story() {
@@ -10,7 +12,9 @@ export default function Story() {
 
   return (
     <div className="story-container">
-      {story}
+      <SimpleBar style={{ height: '50vh' }}>
+        {story}
+      </SimpleBar>
     </div>
   );
 }

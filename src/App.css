@@ -6,10 +6,21 @@
   justify-content: center;
 }
 
+.record-container {
+  align-self: center;
+}
+
+#start-stop-button {
+  padding: 1em;
+}
+
 .story-container {
   align-self: center;
   height: 50vh;
-  width: 70vh;
-  overflow: scroll;
-  overflow-x: hidden;
+  width: 60vw;
+  overflow: hidden;
+}
+
+.story-container p {
+  padding: 0em 1em;
 }

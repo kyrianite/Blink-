@@ -42,9 +42,8 @@ export default function RecordBlink() {
   };
 
   return (
-    <div className="record-blink">
-      RECORD BLINK WINDOW!
-      <button id="stopRecording" type="submit" onClick={(e) => handleClick(e)}>START/STOP</button>
+    <div className="record-container">
+      <button id="start-stop-button" type="submit" onClick={(e) => handleClick(e)}>START/STOP</button>
     </div>
   );
 }
