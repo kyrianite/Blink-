@@ -7,7 +7,7 @@ import blink from './BlinkDetection';
 
 const axios = require('axios').default;
 
-export default function RecordBlink({ username, email, setProgress, setFinishedRecording }) {
+export default function RecordBlink({ username, email, setProgress, setFinishedRecording, setData }) {
   const [loading, setLoading] = useState(true);
   const [recording, setRecording] = useState(false);
   const videoElement = document.getElementById('video');
@@ -18,8 +18,10 @@ export default function RecordBlink({ username, email, setProgress, setFinishedR
   let predictInterval = null;
 
   const sendData = (data) => {
-    console.log('data to send: ', { ...data, username, email });
-    axios.post('http://localhost:3030/api', { ...data, username, email })
+    const myData = { ...data, username, email };
+    setData(myData);
+    console.log('data to send: ', myData);
+    axios.post('http://localhost:3030/api', myData)
       .then((res) => {
         console.log('success?', res.status);
       })

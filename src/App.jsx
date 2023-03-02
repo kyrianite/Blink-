@@ -9,29 +9,31 @@ import RecordBlink from './components/RecordBlink';
 import Story from './components/Story';
 import UserInfoModal from './components/UserInfoModal';
 import ZenMode from './components/ZenMode';
-import Results from './components/Results';
+import TestModeResults from './components/TestModeResults';
 
 export default function App() {
   const [username, setUsername] = useState('anonymous');
   const [email, setEmail] = useState('none');
+  const [data, setData] = useState({});
   const [progress, setProgress] = useState(0);
   const [finishedRecording, setFinishedRecording] = useState(false);
+  const [currentTab, setCurrentTab] = useState('test');
 
   return (
     <div className="App">
       <div className="title">Blink!</div>
       <div className="subtitle">Meaure your blink rate</div>
       {/* <UserInfoModal setUsername={setUsername} setEmail={setEmail} /> */}
-      <RecordBlink username={username} email={email} setProgress={setProgress} setFinishedRecording={setFinishedRecording} />
+      <RecordBlink username={username} email={email} setProgress={setProgress} setFinishedRecording={setFinishedRecording} setData={setData} />
       {/* <ProgressBar variant="info" animated now={progress} /> */}
-      <LinearProgress variant="determinate" value={progress} />
+      {currentTab === 'zen' ? <LinearProgress /> : <LinearProgress variant="determinate" value={progress} />}
       <div className="tab-menu">
-        <Tabs defaultActiveKey="test" fill justify>
+        <Tabs defaultActiveKey="test" fill justify onSelect={(key) => setCurrentTab(key)}>
           <Tab eventKey="test" title="Test Mode">
-            {finishedRecording ? <Results /> : <Story />}
+            {finishedRecording ? <TestModeResults data={data} /> : <Story />}
           </Tab>
           <Tab eventKey="zen" title="Zen Mode">
-            <ZenMode />
+            {/* <ZenMode data={data} /> */}
           </Tab>
         </Tabs>
       </div>

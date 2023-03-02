@@ -52,6 +52,10 @@
   width: 60vw;
 }
 
+.results {
+  padding: 1.5em;
+}
+
 .story-container p {
   padding: 1em 1.5em 0em;
 }
