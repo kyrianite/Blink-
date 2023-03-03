@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
@@ -7,7 +8,7 @@ import blink from './BlinkDetection';
 
 const axios = require('axios').default;
 
-export default function RecordBlink({ username, email, setProgress, setFinishedRecording, setData }) {
+export default function RecordBlink({ username, email, setProgress, setFinishedRecording, setData, setDataStream, currentTab }) {
   const [loading, setLoading] = useState(true);
   const [recording, setRecording] = useState(false);
   const videoElement = document.getElementById('video');
@@ -15,7 +16,7 @@ export default function RecordBlink({ username, email, setProgress, setFinishedR
   let startTime = null;
   let stopTime = null;
   let myInterval = null;
-  let predictInterval = null;
+  let dataStreamInterval = null;
 
   const sendData = (data) => {
     const myData = { ...data, username, email };
@@ -50,7 +51,7 @@ export default function RecordBlink({ username, email, setProgress, setFinishedR
       stopTime = Date.now();
       const diff = stopTime - startTime;
       setProgress(diff / 300);
-      if (diff >= 30000) {
+      if (diff >= 30000 && currentTab === 'test') {
         console.log('STOPPED! 30s is over');
         stopRecording();
       }
@@ -58,9 +59,16 @@ export default function RecordBlink({ username, email, setProgress, setFinishedR
   };
 
   const startPredictions = () => {
-    predictInterval = setInterval(() => {
+    setInterval(() => {
       blink.getBlinkPrediction();
     }, 100);
+    startTime = Date.now();
+    dataStreamInterval = setInterval(() => {
+      console.log('startTime', startTime, blink.getBlinkTimes());
+      setDataStream({
+        startTime, blinkCount: blink.getBlinkCount(), blinkTimes: blink.getBlinkTimes(),
+      });
+    }, 1000);
   };
 
   useEffect(() => {

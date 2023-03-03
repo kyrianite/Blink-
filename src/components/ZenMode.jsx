@@ -7,7 +7,10 @@ import { Scatter } from 'react-chartjs-2';
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
 
 export default function ZenMode({ data }) {
-  const points = data.blinkTimes.map((b) => ((b - data.startTime) / 1000)).map((bt) => ({ x: bt, y: 1 }));
+  let points = [];
+  if (data.blinkTimes) {
+    points = data.blinkTimes.map((b) => ((b - data.startTime) / 1000)).map((bt) => ({ x: bt, y: 1 }));
+  }
   const options = {
     scales: {
       y: {
@@ -21,7 +24,7 @@ export default function ZenMode({ data }) {
         beginAtZero: true,
         title: {
           display: true,
-          text: 'BPM (Blinks per Minute)',
+          text: 'Time (seconds)',
         },
       },
     },

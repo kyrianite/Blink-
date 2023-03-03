@@ -18,13 +18,14 @@ export default function App() {
   const [progress, setProgress] = useState(0);
   const [finishedRecording, setFinishedRecording] = useState(false);
   const [currentTab, setCurrentTab] = useState('test');
+  const [dataStream, setDataStream] = useState({});
 
   return (
     <div className="App">
       <div className="title">Blink!</div>
       <div className="subtitle">Meaure your blink rate</div>
       {/* <UserInfoModal setUsername={setUsername} setEmail={setEmail} /> */}
-      <RecordBlink username={username} email={email} setProgress={setProgress} setFinishedRecording={setFinishedRecording} setData={setData} />
+      <RecordBlink username={username} email={email} setProgress={setProgress} setFinishedRecording={setFinishedRecording} setData={setData} setDataStream={setDataStream} currentTab={currentTab} />
       {/* <ProgressBar variant="info" animated now={progress} /> */}
       {currentTab === 'zen' ? <LinearProgress /> : <LinearProgress variant="determinate" value={progress} />}
       <div className="tab-menu">
@@ -33,7 +34,7 @@ export default function App() {
             {finishedRecording ? <TestModeResults data={data} /> : <Story />}
           </Tab>
           <Tab eventKey="zen" title="Zen Mode">
-            {/* <ZenMode data={data} /> */}
+            <ZenMode data={dataStream} />
           </Tab>
         </Tabs>
       </div>
