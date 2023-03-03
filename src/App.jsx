@@ -24,7 +24,7 @@ export default function App() {
     <div className="App">
       <div className="title">Blink!</div>
       <div className="subtitle">Measure your blink rate</div>
-      {/* <UserInfoModal setUsername={setUsername} setEmail={setEmail} /> */}
+      <UserInfoModal setUsername={setUsername} setEmail={setEmail} />
       <RecordBlink username={username} email={email} setProgress={setProgress} setFinishedRecording={setFinishedRecording} setData={setData} setDataStream={setDataStream} currentTab={currentTab} />
       {/* <ProgressBar variant="info" animated now={progress} /> */}
       {currentTab === 'zen' ? <LinearProgress /> : <LinearProgress variant="determinate" value={progress} />}
