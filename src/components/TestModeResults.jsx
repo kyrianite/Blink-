@@ -35,14 +35,15 @@ export default function TestModeResults({ data }) {
     datasets: [{
       label: 'Blink Times',
       data: points,
-      backgroundColor: 'rgba(255, 99, 132, 1)',
+      backgroundColor: '#0081A7',
     }],
   };
 
   return (
     <div className="results">
       <Scatter options={options} data={graphData} />
-      Total blinks: {points.length}
+      <p>Total blinks in 30s: {points.length}</p>
+      <p>Estimated blinks per minute: {points.length * 2}</p>
     </div>
   );
 }

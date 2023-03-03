@@ -1,3 +1,15 @@
+html, #root {
+  /* background-color: #FED9B7; */
+  background: rgb(254,217,183);
+  background: linear-gradient(90deg, rgba(254,217,183,1) 0%, rgba(244,235,227,1) 30%, rgba(244,235,227,1) 70%, rgba(254,217,183,1) 100%);
+}
+
+.story-container, .tab-menu, .tab-content, .nav-tabs, .nav-link.active {
+  /* background-color: #FDFCDC !important; */
+  background: rgb(253,252,220) !important;
+background: radial-gradient(circle, rgba(253,252,220,1) 0%, rgba(253,252,220,0.5634628851540616) 0%, rgba(253,252,220,1) 100%) !important;
+}
+
 .App {
   margin: 1rem;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
@@ -9,39 +21,39 @@
 .title {
   align-self: center;
   font-size: 7vw;
+  font-family: 'Pacifico', cursive;
+  color: #F07167;
 }
 
 .subtitle {
   align-self: center;
   font-size: 2vw;
+  font-family: 'Kalam', cursive;
+  font-weight: bold;
+  color: #00AFB9;
+}
+
+.nav-link {
+  font-family: 'Kalam', cursive;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #0081A7;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+  color: #0081A7;
+  font-weight: 900;
 }
 
 .record-container {
   align-self: center;
+  padding: 0.5em 0em 1em 0em;
 }
-
-#start-stop-button {
-  padding: 1em;
-  margin: 1em 0em;
-}
-
-/* .nav:not(.nav-item) {
-  align-self: center;
-  width: 60vw;
-  overflow: hidden;
-  box-shadow: 0rem 0.055rem 1.11rem hsl(0deg 0% 8% / 27%);
-}
-
-.tab-content {
-  align-self: center;
-  height: 50vh;
-  width: 60vw;
-  box-shadow: 0rem 0.055rem 1.11rem hsl(0deg 0% 8% / 27%);
-} */
 
 .tab-menu {
   align-self: center;
-  height: 50vh;
+  height: 55vh;
   width: 60vw;
   overflow: hidden;
   box-shadow: 0rem 0.055rem 1.11rem hsl(0deg 0% 8% / 27%);

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -19,6 +20,8 @@ export default function ZenMode({ data }) {
           display: true,
           text: 'Blink Rate',
         },
+        max: 2,
+        ticks: { stepSize: 1},
       },
       x: {
         beginAtZero: true,
@@ -33,13 +36,15 @@ export default function ZenMode({ data }) {
     datasets: [{
       label: 'Blink Times',
       data: points,
-      backgroundColor: 'rgba(255, 99, 132, 1)',
+      backgroundColor: '#0081A7',
     }],
   };
 
   return (
     <div className="results">
       <Scatter options={options} data={graphData} />
+      <p>Total Blinks: {data.blinkTimes?.length}</p>
+      <p>Blinks per Minute: ~{data.blinkTimes ? Math.round((data.blinkTimes[data.blinkTimes.length - 1] - data.startTime) / 6000) : 0}</p>
     </div>
   );
 }

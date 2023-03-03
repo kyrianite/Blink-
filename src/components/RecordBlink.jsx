@@ -4,6 +4,8 @@
 /* eslint-disable max-len */
 /* eslint-disable func-names */
 import React, { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
+import AlarmIcon from '@mui/icons-material/Alarm';
 import blink from './BlinkDetection';
 
 const axios = require('axios').default;
@@ -64,7 +66,6 @@ export default function RecordBlink({ username, email, setProgress, setFinishedR
     }, 100);
     startTime = Date.now();
     dataStreamInterval = setInterval(() => {
-      console.log('startTime', startTime, blink.getBlinkTimes());
       setDataStream({
         startTime, blinkCount: blink.getBlinkCount(), blinkTimes: blink.getBlinkTimes(),
       });
@@ -96,7 +97,8 @@ export default function RecordBlink({ username, email, setProgress, setFinishedR
 
   return (
     <div className="record-container">
-      <button id="start-stop-button" type="submit" disabled={loading} onClick={(e) => handleClick(e)}>START!</button>
+      <Button variant="outlined" className="start-stop-button" size="large" type="submit" disabled={loading} endIcon={<AlarmIcon />} onClick={(e) => handleClick(e)}>START!</Button>
+      {/* <button className="start-stop-button" type="submit" disabled={loading} onClick={(e) => handleClick(e)}>START!</button> */}
     </div>
   );
 }

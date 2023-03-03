@@ -12,7 +12,7 @@ const story = stories[randNum].split('\n').map((s, i) => {
 export default function Story() {
   return (
     <div className="story-container">
-      <SimpleBar style={{ height: '50vh' }}>
+      <SimpleBar style={{ height: '49vh' }}>
         {story}
       </SimpleBar>
     </div>
