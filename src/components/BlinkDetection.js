@@ -15,7 +15,7 @@ let blinkCount = 0;
 let blinkTimes = [];
 // let rendering = true;
 
-const VIDEO_SIZE = 500;
+const VIDEO_SIZE = 150;
 const EAR_THRESHOLD = 0.20;
 const lastBlink = { left: Number.positiveInfinity, right: Number.positiveInfinity };
 

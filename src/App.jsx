@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';

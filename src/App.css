@@ -18,6 +18,17 @@ background: radial-gradient(circle, rgba(253,252,220,1) 0%, rgba(253,252,220,0.5
   justify-content: center;
 }
 
+#video-container {
+  position: absolute;
+  top: 0.75em;
+  right: 2.5vw;
+  padding: 1em;
+}
+
+#video {
+  border-radius: 50%;
+}
+
 .title {
   align-self: center;
   font-size: 7vw;

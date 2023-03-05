@@ -20,10 +20,11 @@ app.use(cors());
 // app.use(express.static(path.join(__dirname, '/dist')));
 
 app.post('/api', async (req, res) => {
-  let data = req.body;
+  const data = req.body;
   try {
-    // const newBlinkData = new Blinks(data);
-    // newBlinkData.save();
+    console.log('Data saved to Mongo', data);
+    const newBlinkData = new Blinks(data);
+    newBlinkData.save();
     console.log('Added to MongoDB');
     res.status(201).send();
   } catch (err) {

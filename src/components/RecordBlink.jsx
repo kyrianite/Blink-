@@ -24,7 +24,7 @@ export default function RecordBlink({ username, email, setProgress, setFinishedR
     const myData = { ...data, username, email };
     setData(myData);
     console.log('data to send: ', myData);
-    axios.post('http://localhost:3030/api', myData)
+    axios.post('http://localhost:3030/api', { username, email, blinks: data.blinkCount, blinkTimes: data.blinkTimes })
       .then((res) => {
         console.log('success?', res.status);
       })
