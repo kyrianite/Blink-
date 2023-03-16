@@ -40,7 +40,7 @@ export default function TestModeResults({ data }) {
   };
 
   return (
-    <div className="results">
+    <div className="results" style={{ height: '40vh' }}>
       <Scatter options={options} data={graphData} />
       <p>Total blinks in 30s: {points.length}</p>
       <p>Estimated blinks per minute: {points.length * 2}</p>

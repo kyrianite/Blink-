@@ -7,7 +7,7 @@ html, #root {
 .story-container, .tab-menu, .tab-content, .nav-tabs, .nav-link.active {
   /* background-color: #FDFCDC !important; */
   background: rgb(253,252,220) !important;
-background: radial-gradient(circle, rgba(253,252,220,1) 0%, rgba(253,252,220,0.5634628851540616) 0%, rgba(253,252,220,1) 100%) !important;
+  background: radial-gradient(circle, rgba(253,252,220,1) 0%, rgba(253,252,220,0.5634628851540616) 0%, rgba(253,252,220,1) 100%) !important;
 }
 
 .App {
@@ -76,6 +76,10 @@ background: radial-gradient(circle, rgba(253,252,220,1) 0%, rgba(253,252,220,0.5
 }
 
 .results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 40vh;
   padding: 1.5em;
 }
 
@@ -106,3 +110,4 @@ body.modal-open > :not(.modal) {
   display: flex;
   align-items: center;
 }
+
